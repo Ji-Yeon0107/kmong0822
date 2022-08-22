@@ -1,0 +1,46 @@
+header {
+  width: 100%;
+  text-align: right;
+}
+
+header > img {
+  width: 30%;
+}
+
+.main-img__label {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.main-img__label.top {
+  justify-content: space-between;
+}
+.main-img__label.bottom {
+  gap: 10%;
+  padding-top: 20px;
+}
+
+.main-img {
+  min-width: 327px;
+  display: flex;
+  align-items: baseline;
+}
+
+.main-img .main-img__container:first-child {
+  flex: 1;
+}
+
+.main-img .main-img__container:last-child {
+  flex: 6;
+}
+
+.main-img .main-img__container .main-img__item {
+  width: 100%;
+}
+
+.main-img .main-img__container:first-child .main-img__item {
+  transform: translate(55px, 10px);
+}

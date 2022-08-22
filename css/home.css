@@ -1,0 +1,53 @@
+/* #0068b7 */
+/* rgb(0,104,183) */
+
+/* #43bcc5
+rgb(67,188,197) */
+
+body {
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer .logo {
+  width: 100px;
+}
+
+footer .logo > img {
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.menu {
+}
+
+.menu-item {
+  border: 1px solid blue;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+}
+
+.menu-item > p {
+  width: 100%;
+  text-align: center;
+}
+
+.menu-item > img {
+  width: 33vw;
+  height: 41vw;
+  object-fit: cover;
+}
+
+@media screen and (min-width: 1024px) {
+}
