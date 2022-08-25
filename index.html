@@ -7,13 +7,24 @@
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/home.css" />
     <script src="./app.js" defer></script>
+    <script src="./sendEmail.js" defer></script>
     <title>Maintenance Kit Planner</title>
   </head>
   <body>
     <div class="wrapper">
       <section class="title">
-        Maintenance Kit Planner
-        <!-- <img src="" alt="Maintenance Kit Planner" /> -->
+        <div class="title-container">
+          <img
+            class="title-bg__icon"
+            src="./img/ui/repairing.png"
+            alt="repairing"
+          />
+          <div>
+            <p class="title-main">Maintenance Kit</p>
+            <p class="title-main-large">Planner</p>
+          </div>
+        </div>
+        <p class="title-sub">Reduce Your Downtime!</p>
       </section>
       <section class="menu">
         <a href="./partselect.html">
@@ -34,10 +45,22 @@
       </section>
     </div>
     <footer>
-      <div>icon1</div>
-      <div>icon2</div>
-      <div class="logo">
-        <img src="./img/logo.png" alt="YOUNG IN Chromass" />
+      <div class="footer-inner">
+        <div class="footer-container">
+          <div class="first">
+            <a href="/">
+              <img class="icon" src="./img/ui/home.png" alt="home" />
+            </a>
+          </div>
+          <div class="send-email">
+            <img src="./img/ui/envelope.png" class="icon" alt="email" />
+          </div>
+        </div>
+        <div class="logo-box last">
+          <a href="#">
+            <img src="./img/logo.png" class="logo" alt="YOUNG IN Chromass" />
+          </a>
+        </div>
       </div>
     </footer>
   </body>

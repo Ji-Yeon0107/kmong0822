@@ -1,24 +1,48 @@
-header {
-  width: 100%;
-  text-align: right;
+main {
+  width: 327px;
+  margin: auto;
+  background-color: rgba(255, 255, 255);
+  border-radius: 24px;
+  padding: 22px;
+  box-shadow: 10px 10px 16px rgba(0, 0, 0, 0.1);
 }
 
-header > img {
-  width: 30%;
+.main-inner {
+  width: 327px;
+  margin: auto;
 }
 
 .main-img__label {
   position: relative;
   z-index: 100;
   display: flex;
-  padding-left: 30px;
-  padding-right: 30px;
+
+  /* padding-left: 30px;
+  padding-right: 30px; */
+}
+
+.main-img__label > a > p {
+  padding: 4px 10px;
+  background-color: rgba(0, 104, 183, 0.64);
+  font-size: 0.8rem;
+  font-weight: 200;
+  color: #fff;
+  border-radius: 22px;
 }
 
 .main-img__label.top {
   justify-content: space-between;
 }
+
+.main-img__label.top > a:nth-child(2) > p {
+  transform: translateX(13px);
+}
+.main-img__label.top > a:nth-child(3) > p {
+  transform: translateX(-13px);
+}
+
 .main-img__label.bottom {
+  justify-content: center;
   gap: 10%;
   padding-top: 20px;
 }
@@ -43,4 +67,97 @@ header > img {
 
 .main-img .main-img__container:first-child .main-img__item {
   transform: translate(55px, 10px);
+}
+
+.indicator-box {
+  position: relative;
+  z-index: 100;
+}
+
+.indicator {
+  border: 1px solid rgba(0, 104, 183, 0.64);
+}
+.indicator:nth-child(1) {
+  position: absolute;
+  top: 26px;
+  left: 73px;
+  width: 0px;
+  height: 82px;
+}
+
+.indicator:nth-child(2) {
+  position: absolute;
+  top: 24px;
+  left: 173px;
+  width: 0px;
+  height: 133px;
+}
+
+.indicator:nth-child(3) {
+  position: absolute;
+  top: 24px;
+  left: 215px;
+  width: 0px;
+  height: 133px;
+}
+
+.indicator:nth-child(4) {
+  position: absolute;
+  top: 242px;
+  left: 130px;
+  width: 0px;
+  height: 35px;
+}
+
+.indicator:nth-child(5) {
+  position: absolute;
+  top: 226px;
+  left: 210px;
+  width: 0px;
+  height: 41px;
+}
+
+.indicator-block {
+  position: absolute;
+  border-radius: 10px;
+  border: 2px solid rgb(95, 135, 184);
+}
+
+.indicator-block:nth-child(6) {
+  width: 34px;
+  height: 130px;
+  top: 110px;
+  left: 57px;
+}
+.indicator-block:nth-child(7) {
+  width: 58px;
+  height: 90px;
+  top: 150px;
+  left: 105px;
+}
+
+.indicator-block:nth-child(8) {
+  width: 52px;
+  height: 55px;
+  top: 168px;
+  left: 169px;
+}
+.indicator-block:nth-child(9) {
+  width: 25px;
+  height: 14px;
+  top: 150px;
+  left: 167px;
+}
+.indicator-block:nth-child(10) {
+  width: 25px;
+  height: 14px;
+  top: 150px;
+  left: 200px;
+}
+
+@media screen and (min-width: 1024px) {
+  main {
+    width: 70%;
+    margin: auto;
+  }
 }

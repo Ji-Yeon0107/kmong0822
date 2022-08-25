@@ -6,59 +6,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/partselect.css" />
+    <script src="./app.js" defer></script>
+    <script src="./sendEmail.js" defer></script>
     <title>Maintenance Kit Planner</title>
   </head>
   <body>
     <div class="wrapper">
       <header>
-        <img src="./img/ChroZen_GC_PAL_2_BI.png" alt="ChroZen GC" />
-        <p>Chrozen GC</p>
+        <img
+          id="headerImage"
+          src="./img/ChroZen_GC_PAL_2_BI.png"
+          alt="ChroZen GC"
+        />
+        <div class="header-text">Chrozen GC</div>
       </header>
       <main>
-        <div class="main-img__label top">
-          <a href="./productlist.html">
-            <p>Carrier Gas</p>
-          </a>
-          <a href="#">
-            <p>Inlet</p>
-          </a>
-          <a href="#">
-            <p>Detector (FID)</p>
-          </a>
-        </div>
-        <div class="main-img">
-          <div class="main-img__container">
+        <div class="main-inner">
+          <div class="indicator-box">
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator-block"></div>
+            <div class="indicator-block"></div>
+            <div class="indicator-block"></div>
+            <div class="indicator-block"></div>
+            <div class="indicator-block"></div>
+          </div>
+          <div class="main-img__label top">
             <a href="./productlist.html">
-              <img
-                class="main-img__item"
-                src="./img/273.jpg"
-                alt="Carrier Gas"
-              />
+              <p>Carrier Gas</p>
+            </a>
+            <a href="#">
+              <p>Inlet</p>
+            </a>
+            <a href="#">
+              <p>Detector (FID)</p>
             </a>
           </div>
-          <div class="main-img__container">
-            <img
-              class="main-img__item"
-              src="./img/ChroZen_GC-MS_T.png"
-              alt="ChroZen GC"
-            />
+          <div class="main-img">
+            <div class="main-img__container">
+              <a href="./productlist.html">
+                <img
+                  class="main-img__item"
+                  src="./img/273.jpg"
+                  alt="Carrier Gas"
+                />
+              </a>
+            </div>
+            <div class="main-img__container">
+              <img
+                class="main-img__item"
+                src="./img/ChroZen_GC-MS_T.png"
+                alt="ChroZen GC"
+              />
+            </div>
           </div>
-        </div>
-        <div class="main-img__label bottom">
-          <a href="#">
-            <p>Detector (MS)</p>
-          </a>
-          <a href="#">
-            <p>Column</p>
-          </a>
+          <div class="main-img__label bottom">
+            <a href="#">
+              <p>Detector (MS)</p>
+            </a>
+            <a href="#">
+              <p>Column</p>
+            </a>
+          </div>
         </div>
       </main>
     </div>
     <footer>
-      <div>icon1</div>
-      <div>icon2</div>
-      <div class="logo">
-        <img src="./img/logo.png" alt="YOUNG IN Chromass" />
+      <div class="footer-inner">
+        <div class="footer-container">
+          <div class="first">
+            <a href="/">
+              <img class="icon" src="./img/ui/home.png" alt="home" />
+            </a>
+          </div>
+          <div class="send-email">
+            <img src="./img/ui/envelope.png" class="icon" alt="email" />
+          </div>
+        </div>
+        <div class="logo-box last">
+          <a href="#">
+            <img src="./img/logo.png" class="logo" alt="YOUNG IN Chromass" />
+          </a>
+        </div>
       </div>
     </footer>
   </body>

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
 :root {
   --theme-color: rgb(0, 104, 183);
   --sub-theme-color: rgb(67, 188, 197);
@@ -6,6 +8,18 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "Poppins", sans-serif;
+  color: rgb(37, 37, 37);
+}
+
+body {
+  margin: auto;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 104, 183, 0.27) 0%,
+    rgba(67, 188, 197, 0.27) 100%
+  );
+  padding-bottom: 100px; /* footer padding*/
 }
 
 a {
@@ -13,18 +27,114 @@ a {
   color: inherit;
 }
 
+header {
+  width: 75px;
+  justify-content: right;
+  margin-bottom: 18px;
+  margin-left: auto;
+  margin-right: 12px;
+}
+
+header #headerImage {
+  width: 100%;
+}
+
+header .header-text {
+  margin-top: -10px;
+  text-align: center;
+  font-size: 0.7rem;
+}
+
+header #headerImage:hover,
+header .header-text:hover {
+  cursor: pointer;
+}
+
 footer {
   position: fixed;
   bottom: 0px;
   width: 100%;
-  height: 80px;
-  border: 1px solid black;
+  height: 76px;
+  display: flex;
+  border-radius: 35px 35px 0 0;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px -6px 10px rgba(0, 0, 0, 0.05);
+}
+
+footer .footer-inner {
+  width: 100%;
+  max-width: 477px;
+  margin: auto;
   display: flex;
   justify-content: space-between;
-  padding-left: 10px;
-  padding-right: 10px;
+  align-items: center;
+}
+
+footer .footer-container {
+  width: 45%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer #footerBg {
+  position: absolute;
+  z-index: -1;
+  width: 100vw;
+  height: 100px;
+}
+
+footer .first {
+  padding-left: 50px;
+}
+
+footer .last {
+  padding-right: 50px;
+}
+
+footer .icon {
+  width: 35px;
+  height: 35px;
+}
+
+footer .logo-box {
+  width: 100px;
+}
+
+footer .logo-box a .logo {
+  width: 100%;
+}
+
+footer .icon:hover,
+footer .logo-box a .logo:hover {
+  cursor: pointer;
 }
 
 .wrapper {
   padding: 14px;
+  max-width: 1024px;
+  margin: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+  footer {
+    position: fixed;
+    width: calc(100% - 40px);
+    height: 70px;
+    bottom: 12px;
+
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 80px;
+  }
+  footer #footerBg {
+    display: none;
+  }
 }

@@ -6,10 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/productlist.css" />
+    <script src="./app.js" defer></script>
+    <script src="./sendEmail.js" defer></script>
     <title>Maintenance Kit Planner</title>
   </head>
-  <body>
-    <table>
+    <div class="wrapper">
+    <header>
+      <a href="/partselect.html">
+        <div>
+          <img
+          id="headerImage"
+          src="./img/ChroZen_GC_PAL_2_BI.png"
+          alt="ChroZen GC"
+        />
+      <div class="header-text">Chrozen GC</div>
+        </div>
+    </a>
+    </header>
+    
+    <table id="productList">
       <thead>
         <tr>
           <td>Carrier Gas</td>
@@ -17,44 +32,43 @@
           <td>How to Replace</td>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>
-            <a href="#">
-              <div class="info">
-                <img
-                  class="info-img"
-                  src="./img/GC_08.png"
-                  alt="split vent trap catridge"
-                />
-                <div class="info__right">
-                  <div>11</div>
-                  <div>split</div>
-                </div>
-              </div>
-            </a>
-          </td>
-          <td>
-            <a href="./index.html"> <div>Everymonth</div></a>
-          </td>
-          <td></td>
-        </tr>
-        <tr>
-          <td class="info"></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td class="info"></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td class="info"></td>
-          <td></td>
-          <td></td>
-        </tr>
+      <tbody id="tableBody">
+         <!-- 내용삽입 -->
       </tbody>
     </table>
+    <div id="productDetail" class="hidden">
+    <div class="list-button">
+      <img src="./img/ui/menu.png" alt="back to list" style="width:28px" />
+      <div>
+        Back to List
+      </div>
+    </div>
+      <div class="container">
+        <img id="prev" src="./img/ui/next.png" alt="prev" style="width:25px" />
+        <div id="productDetailDesc">
+          <!-- 내용삽입 -->
+        </div><img  id="next" src="./img/ui/next.png" alt="prev" style="width:25px" />
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-container">
+        <div class="first">
+          <a href="/">
+            <img class="icon" src="./img/ui/home.png" alt="home" />
+          </a>
+        </div>
+        <div class="send-email-detail">
+          <img src="./img/ui/envelope.png" class="icon" alt="email" />
+        </div>g
+      </div>
+      <div class="logo-box last">
+        <a href="#">
+          <img src="./img/logo.png" class="logo" alt="YOUNG IN Chromass" />
+        </a>
+      </div>
+    </div>
+  </footer>
   </body>
 </html>
