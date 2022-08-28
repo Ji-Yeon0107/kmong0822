@@ -1,4 +1,9 @@
 let currentProductId = 0;
+let mailBody = "";
+const sendeEmailDetailBtn = document.querySelector(".send-email-detail");
+const mailSubject = "요청"; // 원하는 문구로 수정
+const productDetail = document.querySelector("#productDetail");
+const productListEle = document.querySelector("#productList");
 
 const productList = [
   {
@@ -10,6 +15,7 @@ const productList = [
         name: "Split Vent Trap",
         replacement: "Every 6 month",
         videoURL: "https://www.youtube.com/watch?v=Ayz9pkSKR4g",
+        select: false,
       },
       {
         id: 1,
@@ -18,6 +24,7 @@ const productList = [
         name: "Moisture trap Trap, Molecular Sieve",
         replacement: "Every 6-12 month",
         videoURL: "https://www.youtube.com/watch?v=Ayz9pkSKR4g",
+        select: false,
       },
       {
         id: 2,
@@ -26,6 +33,7 @@ const productList = [
         name: "Oxygen trap",
         replacement: "Every 6-12 month",
         videoURL: "https://www.youtube.com/watch?v=Ayz9pkSKR4g",
+        select: false,
       },
       {
         id: 3,
@@ -34,32 +42,37 @@ const productList = [
         name: "Hydrocarbon trap",
         replacement: "Every 6-12 month",
         videoURL: "https://www.youtube.com/watch?v=Ayz9pkSKR4g",
+        select: false,
       },
     ],
   },
 ];
 
-// email 전송창 띄우기
-function sendEmail(currentProductId) {
-  const sendeEmailDetailBtn = document.querySelector(".send-email-detail");
+// 이메일전송
+sendeEmailDetailBtn?.addEventListener("click", () => {
+  if (currentProductId === -1) {
+    window.open(`mailto:mkt@youngincm.com`);
+  } else {
+    window.open(
+      `mailto:mkt@youngincm.com?subject=${mailSubject}&body=${mailBody}`
+    );
+  }
+});
 
-  const mailSubject = "요청"; // 원하는 문구로 수정
-  const mailBody = `
-  PN: ${productList[0]?.CarrierGas[currentProductId]?.PN}, 
-  Name: ${productList[0]?.CarrierGas[currentProductId]?.name}, 
-  Replacement Schedule: ${productList[0]?.CarrierGas[currentProductId]?.replacement}
-  `;
+function setEmailContent(currentProductId) {
+  const selectedItems = productList[0].CarrierGas?.filter(
+    (item) => item.select === true
+  );
 
-  sendeEmailDetailBtn?.addEventListener("click", () => {
-    if (currentProductId === -1) {
-      window.open(`mailto:mkt@youngincm.com`);
-    } else {
-      window.open(
-        `mailto:mkt@youngincm.com?subject=${mailSubject}&body=${mailBody}`
-      );
-    }
-    window.location.replace("/productlist.html");
-  });
+  const selctedItemsContent = selectedItems.map(
+    (item, index) => `
+${index + 1}. 
+  PN: ${item.PN},
+  Name: ${item.name},
+  Replacement Schedule: ${item.replacement}
+  `
+  );
+  mailBody = selctedItemsContent.join("%0D%0A");
 }
 // table에 상품리스트를 담는다
 (function () {
@@ -70,6 +83,10 @@ function sendEmail(currentProductId) {
     (data) =>
       `
     <tr>
+    <td style={{textAlign:'center'}}><input type="checkbox" class="select" data-id=${
+      data.id
+    }
+    /></td>
     <td>
         <div class="info detail-button move" data-id=${data.id}>
           <img
@@ -109,7 +126,10 @@ function appendProductDetail() {
   productDetailDesc.innerHTML = `
   <div class="desc-container">
     <div>${Object.keys(productList[0])}</div>
-    <div><img class="detail-img" src="./img/${
+    <div>
+    <div>
+    <input type="checkbox" class="detail-select"/></div>
+    <img class="detail-img" src="./img/${
       currentProduct.img
     }" width="300px" alt=${currentProduct.name} /></div>
     <div><span class="strong">P/N</span> ${currentProduct.PN}</div>
@@ -137,7 +157,7 @@ function changeCurrentID(e) {
     currentProductId = Number(currentProductId) + 1;
   }
 
-  sendEmail(currentProductId);
+  setEmailContent(currentProductId);
 
   appendProductDetail();
 }
@@ -145,10 +165,9 @@ function changeCurrentID(e) {
 // 상품 리스트에서 상품을 클릭하면 해당 상품의 상세 정보로 이동
 (function () {
   const productDetail = document.querySelector("#productDetail");
-  const productList = document.querySelector("#productList");
+  const productListEle = document.querySelector("#productList");
   const detailButton = document.querySelectorAll(".detail-button");
   const listButton = document.querySelector(".list-button");
-  const sendEmailBtn = document.querySelector(".send-email");
 
   function handleClassName(hide, show) {
     hide.classList = "hidden";
@@ -156,14 +175,19 @@ function changeCurrentID(e) {
   }
   for (let i = 0; i < detailButton.length; i++) {
     detailButton[i]?.addEventListener("click", (e) => {
-      handleClassName(productList, productDetail);
+      handleClassName(productListEle, productDetail);
       changeCurrentID(e);
+      checkSelectButtonChecked();
+      handleSelectCheked();
+      setEmailContent(currentProductId);
     });
   }
 
   listButton?.addEventListener("click", () => {
-    handleClassName(productDetail, productList);
+    handleClassName(productDetail, productListEle);
     currentProductId = 0;
+    checkSelectButtonChecked();
+    handleSelectCheked();
   });
 
   appendProductDetail();
@@ -174,6 +198,54 @@ function changeCurrentID(e) {
   const prevButton = document.querySelector("#prev");
   const nextButton = document.querySelector("#next");
 
-  prevButton?.addEventListener("click", changeCurrentID);
-  nextButton?.addEventListener("click", changeCurrentID);
+  prevButton?.addEventListener("click", (e) => {
+    changeCurrentID(e);
+    handleSelectCheked();
+    checkSelectButtonChecked();
+  });
+  nextButton?.addEventListener("click", (e) => {
+    changeCurrentID(e);
+    handleSelectCheked();
+    checkSelectButtonChecked();
+  });
 })();
+
+// checkbox 체크/체크해제
+function handleSelectCheked() {
+  const selectButton = document.querySelectorAll(".select");
+  const detailSelectButton = document.querySelector(".detail-select");
+
+  for (let i = 0; i < selectButton?.length; i++) {
+    selectButton[i]?.addEventListener("click", (e) => {
+      productList[0].CarrierGas[e.target.dataset.id].select =
+        !productList[0].CarrierGas[e.target.dataset.id].select;
+
+      setEmailContent();
+    });
+  }
+  detailSelectButton?.addEventListener("click", () => {
+    productList[0].CarrierGas[currentProductId].select =
+      !productList[0].CarrierGas[currentProductId].select;
+
+    setEmailContent();
+  });
+}
+handleSelectCheked();
+
+// checkbox check상태
+function checkSelectButtonChecked() {
+  const selectButton = document.querySelectorAll(".select");
+  const detailSelectButton = document.querySelector(".detail-select");
+
+  if (productDetail?.className === "hidden") {
+    for (i = 0; i < productList[0]?.CarrierGas?.length; i++) {
+      selectButton[i].checked = productList[0].CarrierGas[i].select;
+    }
+    return;
+  }
+  if (productListEle?.className === "hidden") {
+    detailSelectButton.checked =
+      productList[0].CarrierGas[currentProductId].select;
+  }
+}
+checkSelectButtonChecked();

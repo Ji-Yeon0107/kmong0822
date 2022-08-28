@@ -1,5 +1,5 @@
 main {
-  width: 327px;
+  max-width: 327px;
   margin: auto;
   background-color: rgba(255, 255, 255);
   border-radius: 24px;
@@ -65,10 +65,12 @@ main {
   width: 100%;
 }
 
-.main-img .main-img__container:first-child .main-img__item {
-  transform: translate(55px, 10px);
+.main-img .main-img__container > a {
+  position: relative;
+  left: 55px;
+  z-index: 100;
+  display: block;
 }
-
 .indicator-box {
   position: relative;
   z-index: 100;
@@ -82,7 +84,7 @@ main {
   top: 26px;
   left: 73px;
   width: 0px;
-  height: 82px;
+  height: 77px;
 }
 
 .indicator:nth-child(2) {
@@ -124,10 +126,10 @@ main {
 }
 
 .indicator-block:nth-child(6) {
-  width: 34px;
-  height: 130px;
-  top: 110px;
-  left: 57px;
+  width: 48px;
+  height: 140px;
+  top: 105px;
+  left: 52px;
 }
 .indicator-block:nth-child(7) {
   width: 58px;
