@@ -53,6 +53,7 @@ header .header-text:hover {
 footer {
   position: fixed;
   bottom: 0px;
+  z-index: 1000;
   width: 100%;
   height: 76px;
   display: flex;
