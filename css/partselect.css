@@ -1,4 +1,5 @@
 main {
+  width: fit-content;
   max-width: 327px;
   margin: auto;
   background-color: rgba(255, 255, 255);
