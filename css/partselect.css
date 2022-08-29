@@ -1,3 +1,7 @@
+.wrapper {
+  overflow: auto;
+}
+
 main {
   width: fit-content;
   max-width: 327px;
