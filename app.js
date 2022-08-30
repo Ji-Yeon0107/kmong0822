@@ -180,6 +180,7 @@ function changeCurrentID(e) {
       checkSelectButtonChecked();
       handleSelectCheked();
       setEmailContent(currentProductId);
+      document.querySelector(".list-notice").classList += " hidden";
     });
   }
 
@@ -188,6 +189,7 @@ function changeCurrentID(e) {
     currentProductId = 0;
     checkSelectButtonChecked();
     handleSelectCheked();
+    document.querySelector(".list-notice").classList = "list-notice";
   });
 
   appendProductDetail();
